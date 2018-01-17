@@ -9,9 +9,9 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Mindy\Bundle\SocialBundle\Library;
+namespace Mindy\Bundle\SocialAuthBundle\Library;
 
-use Mindy\Bundle\SocialBundle\Registry\SocialRegistry;
+use Mindy\Bundle\SocialAuthBundle\Registry\SocialRegistry;
 use Mindy\Template\Library;
 
 class SocialLibrary extends Library

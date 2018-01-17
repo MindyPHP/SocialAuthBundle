@@ -32,7 +32,7 @@ class SocialProviderPass implements CompilerPassInterface
         $registryDefinition = $container->getDefinition(SocialRegistry::class);
 
         foreach ($container->findTaggedServiceIds('social.provider') as $id => $config) {
-            $params = array_shift($config);
+            $params = current($config);
 
             $providerDefinition = $container->getDefinition($id);
             $providerDefinition->setPublic(true);

@@ -9,7 +9,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Mindy\Bundle\SocialBundle\Provider\Yandex;
+namespace Mindy\Bundle\SocialAuthBundle\Provider\Yandex;
 
 use League\OAuth2\Client\Provider\AbstractProvider;
 use League\OAuth2\Client\Provider\Exception\IdentityProviderException;

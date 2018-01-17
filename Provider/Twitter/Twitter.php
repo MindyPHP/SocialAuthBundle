@@ -9,7 +9,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Mindy\Bundle\SocialBundle\Provider\Twitter;
+namespace Mindy\Bundle\SocialAuthBundle\Provider\Twitter;
 
 use League\OAuth1\Client\Credentials\TokenCredentials;
 use League\OAuth1\Client\Server\Twitter as TwitterOauth1;

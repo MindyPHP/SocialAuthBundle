@@ -9,7 +9,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Mindy\Bundle\SocialBundle\Registry;
+namespace Mindy\Bundle\SocialAuthBundle\Registry;
 
 use League\OAuth1\Client\Server\Server;
 use League\OAuth2\Client\Provider\AbstractProvider;

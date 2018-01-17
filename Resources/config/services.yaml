@@ -11,7 +11,7 @@ services:
 
     Mindy\Bundle\SocialAuthBundle\:
         resource: '../../*'
-        exclude: '../../{Tests,Model,vendor}'
+        exclude: '../../{Tests,Provider,Migrations,Model,vendor}'
 
     Mindy\Bundle\SocialAuthBundle\Controller\:
         resource: '../../Controller'

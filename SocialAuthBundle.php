@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace Mindy\Bundle\SocialAuthBundle;
 
-use Mindy\Bundle\SocialBundle\DependencyInjection\Compiler\SocialProviderPass;
+use Mindy\Bundle\SocialAuthBundle\DependencyInjection\Compiler\SocialProviderPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

@@ -9,10 +9,10 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Mindy\Bundle\SocialBundle\Provider\Vkontakte;
+namespace Mindy\Bundle\SocialAuthBundle\Provider\Vkontakte;
 
 use League\OAuth2\Client\Provider\ResourceOwnerInterface;
-use Mindy\Bundle\SocialBundle\Provider\SocialUserInterface;
+use Mindy\Bundle\SocialAuthBundle\Provider\SocialUserInterface;
 
 /**
  * @see     https://vk.com/dev/fields

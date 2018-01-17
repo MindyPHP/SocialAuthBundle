@@ -1,8 +1,0 @@
-services:
-    Mindy\Bundle\SocialBundle\Provider\Twitter\Twitter:
-        arguments:
-            -
-                identifier: '%mindy.social.provider.twitter.client_id%'
-                secret: '%mindy.social.provider.twitter.client_secret%'
-        tags:
-            - { name: social.provider, provider: twitter }

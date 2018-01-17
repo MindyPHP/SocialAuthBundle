@@ -9,7 +9,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Mindy\Bundle\SocialBundle\Provider\Vkontakte;
+namespace Mindy\Bundle\SocialAuthBundle\Provider\Vkontakte;
 
 use League\OAuth2\Client\Provider\AbstractProvider;
 use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
@@ -30,8 +30,8 @@ class Vkontakte extends AbstractProvider
      */
     public $scopes = [
         'email',
-        'friends',
         'offline',
+        //'friends',
         //'photos',
         //'wall',
         //'ads',

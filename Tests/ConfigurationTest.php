@@ -119,7 +119,7 @@ class ConfigurationTest extends TestCase
             'social_auth' => [],
         ]);
 
-        $this->assertSame(
+        $this->assertEquals(
             [
                     'vkontakte' => [
                         'enabled' => false,

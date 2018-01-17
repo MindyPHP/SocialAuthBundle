@@ -27,71 +27,74 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
             ->append($this->providerVkontakte())
+            ->append($this->providerGoogle())
+            ->append($this->providerFacebook())
+            ->append($this->providerYandex())
+            ->append($this->providerTwitter())
+            ->append($this->providerOdnoklassniki())
             ->end();
-
-        $this->addGoogleSection($rootNode);
-        $this->addYandexSection($rootNode);
-        $this->addTwitterSection($rootNode);
-        $this->addFacebookSection($rootNode);
-        $this->addOdnoklassnikiSection($rootNode);
 
         return $treeBuilder;
     }
 
-    private function addOdnoklassnikiSection(ArrayNodeDefinition $rootNode)
+    private function providerOdnoklassniki()
     {
-        $rootNode
+        $builder = new TreeBuilder();
+        $node = $builder->root('odnoklassniki');
+
+        $node
+            ->canBeEnabled()
             ->children()
-                ->arrayNode('odnoklassniki')
-                    ->canBeEnabled()
-                    ->children()
-                        ->scalarNode('client_id')->defaultNull()->end()
-                        ->scalarNode('client_secret')->defaultNull()->end()
-                    ->end()
-                ->end()
+                ->scalarNode('client_id')->defaultNull()->end()
+                ->scalarNode('client_secret')->defaultNull()->end()
             ->end();
+
+        return $node;
     }
 
-    private function addTwitterSection(ArrayNodeDefinition $rootNode)
+    private function providerTwitter()
     {
-        $rootNode
+        $builder = new TreeBuilder();
+        $node = $builder->root('twitter');
+
+        $node
+            ->canBeEnabled()
             ->children()
-                ->arrayNode('twitter')
-                    ->canBeEnabled()
-                    ->children()
-                        ->scalarNode('client_id')->defaultNull()->end()
-                        ->scalarNode('client_secret')->defaultNull()->end()
-                    ->end()
-                ->end()
+                ->scalarNode('client_id')->defaultNull()->end()
+                ->scalarNode('client_secret')->defaultNull()->end()
             ->end();
+
+        return $node;
     }
 
-    private function addYandexSection(ArrayNodeDefinition $rootNode)
+    private function providerYandex()
     {
-        $rootNode
+        $builder = new TreeBuilder();
+        $node = $builder->root('yandex');
+
+        $node
+            ->canBeEnabled()
             ->children()
-                ->arrayNode('yandex')
-                    ->canBeEnabled()
-                    ->children()
-                        ->scalarNode('client_id')->defaultNull()->end()
-                        ->scalarNode('client_secret')->defaultNull()->end()
-                    ->end()
-                ->end()
+                ->scalarNode('client_id')->defaultNull()->end()
+                ->scalarNode('client_secret')->defaultNull()->end()
             ->end();
+
+        return $node;
     }
 
-    private function addGoogleSection(ArrayNodeDefinition $rootNode)
+    private function providerGoogle()
     {
-        $rootNode
+        $builder = new TreeBuilder();
+        $node = $builder->root('google');
+
+        $node
+            ->canBeEnabled()
             ->children()
-                ->arrayNode('google')
-                    ->canBeEnabled()
-                    ->children()
-                        ->scalarNode('client_id')->defaultNull()->end()
-                        ->scalarNode('client_secret')->defaultNull()->end()
-                    ->end()
-                ->end()
+                ->scalarNode('client_id')->defaultNull()->end()
+                ->scalarNode('client_secret')->defaultNull()->end()
             ->end();
+
+        return $node;
     }
 
     private function providerVkontakte()
@@ -113,22 +116,23 @@ class Configuration implements ConfigurationInterface
         return $node;
     }
 
-    private function addFacebookSection(ArrayNodeDefinition $rootNode)
+    private function providerFacebook()
     {
-        $rootNode
+        $builder = new TreeBuilder();
+        $node = $builder->root('facebook');
+
+        $node
+            ->canBeEnabled()
             ->children()
-                ->arrayNode('facebook')
-                    ->canBeEnabled()
-                    ->children()
-                        ->scalarNode('client_id')->defaultNull()->end()
-                        ->scalarNode('client_secret')->defaultNull()->end()
-                        ->scalarNode('graph_api_version')->defaultValue('v2.10')->end()
-                        ->arrayNode('scope')
-                            ->scalarPrototype()->end()
-                            ->defaultValue(['email', 'public_profile'])
-                        ->end()
-                    ->end()
+                ->scalarNode('client_id')->defaultNull()->end()
+                ->scalarNode('client_secret')->defaultNull()->end()
+                ->scalarNode('graph_api_version')->defaultValue('v2.10')->end()
+                ->arrayNode('scope')
+                    ->scalarPrototype()->end()
+                    ->defaultValue(['email', 'public_profile'])
                 ->end()
             ->end();
+
+        return $node;
     }
 }

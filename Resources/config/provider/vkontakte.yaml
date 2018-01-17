@@ -1,9 +1,0 @@
-services:
-    Mindy\Bundle\SocialBundle\Provider\Vkontakte\Vkontakte:
-        arguments:
-            -
-                clientId: '%mindy.social.provider.vkontakte.client_id%'
-                clientSecret: '%mindy.social.provider.vkontakte.client_secret%'
-                scope: '%mindy.social.provider.vkontakte.scope%'
-        tags:
-            - { name: social.provider, provider: vk }

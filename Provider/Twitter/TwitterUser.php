@@ -9,10 +9,10 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Mindy\Bundle\SocialBundle\Provider\Twitter;
+namespace Mindy\Bundle\SocialAuthBundle\Provider\Twitter;
 
 use League\OAuth1\Client\Server\User;
-use Mindy\Bundle\SocialBundle\Provider\SocialUserInterface;
+use Mindy\Bundle\SocialAuthBundle\Provider\SocialUserInterface;
 use ReflectionProperty;
 
 class TwitterUser extends User implements SocialUserInterface

@@ -9,7 +9,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Mindy\Bundle\SocialBundle\Controller;
+namespace Mindy\Bundle\SocialAuthBundle\Controller;
 
 use League\OAuth1\Client\Server\Server;
 use League\OAuth2\Client\Provider\AbstractProvider;
@@ -17,7 +17,7 @@ use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
 use League\OAuth2\Client\Provider\ResourceOwnerInterface;
 use Mindy\Bundle\MindyBundle\Controller\Controller;
 use Mindy\Bundle\SocialBundle\Model\SocialUser;
-use Mindy\Bundle\SocialBundle\Provider\SocialUserInterface;
+use Mindy\Bundle\SocialAuthBundle\Provider\SocialUserInterface;
 use Mindy\Bundle\UserBundle\Model\User;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;

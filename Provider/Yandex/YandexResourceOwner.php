@@ -9,10 +9,10 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Mindy\Bundle\SocialBundle\Provider\Yandex;
+namespace Mindy\Bundle\SocialAuthBundle\Provider\Yandex;
 
 use League\OAuth2\Client\Provider\ResourceOwnerInterface;
-use Mindy\Bundle\SocialBundle\Provider\SocialUserInterface;
+use Mindy\Bundle\SocialAuthBundle\Provider\SocialUserInterface;
 
 class YandexResourceOwner implements ResourceOwnerInterface, SocialUserInterface
 {
