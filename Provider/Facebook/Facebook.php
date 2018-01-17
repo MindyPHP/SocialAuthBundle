@@ -92,21 +92,35 @@ class Facebook extends AbstractProvider
         }
     }
 
+    /**
+     * @return string
+     */
     public function getBaseAuthorizationUrl()
     {
         return $this->getBaseFacebookUrl().$this->graphApiVersion.'/dialog/oauth';
     }
 
+    /**
+     * @param array $params
+     * @return string
+     */
     public function getBaseAccessTokenUrl(array $params)
     {
         return $this->getBaseGraphUrl().$this->graphApiVersion.'/oauth/access_token';
     }
 
+    /**
+     * @return array
+     */
     public function getDefaultScopes()
     {
         return ['public_profile', 'email'];
     }
 
+    /**
+     * @param AccessToken $token
+     * @return string
+     */
     public function getResourceOwnerDetailsUrl(AccessToken $token)
     {
         $fields = [
@@ -126,6 +140,12 @@ class Facebook extends AbstractProvider
                         .'&access_token='.$token.'&appsecret_proof='.$appSecretProof;
     }
 
+    /**
+     * @param string $grant
+     * @param array $params
+     * @return AccessToken
+     * @throws FacebookProviderException
+     */
     public function getAccessToken($grant = 'authorization_code', array $params = [])
     {
         if (isset($params['refresh_token'])) {
@@ -153,11 +173,21 @@ class Facebook extends AbstractProvider
         return $this->getAccessToken('fb_exchange_token', $params);
     }
 
+    /**
+     * @param array $response
+     * @param AccessToken $token
+     * @return \League\OAuth2\Client\Provider\ResourceOwnerInterface|FacebookUser
+     */
     protected function createResourceOwner(array $response, AccessToken $token)
     {
         return new FacebookUser($response);
     }
 
+    /**
+     * @param ResponseInterface $response
+     * @param array|string $data
+     * @throws IdentityProviderException
+     */
     protected function checkResponse(ResponseInterface $response, $data)
     {
         if (!empty($data['error'])) {

@@ -37,17 +37,17 @@ class User implements ResourceOwnerInterface, SocialUserInterface
     /**
      * @return array
      */
-    public function toArray()
+    public function toArray(): array
     {
         return $this->response;
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getId()
+    public function getId(): string
     {
-        return (int) ($this->getField('uid') ?: $this->getField('id'));
+        return (string) ($this->getField('uid') ?: $this->getField('id'));
     }
 
     /**

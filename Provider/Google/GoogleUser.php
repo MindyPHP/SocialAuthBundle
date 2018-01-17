@@ -29,7 +29,7 @@ class GoogleUser implements ResourceOwnerInterface, SocialUserInterface
         $this->response = $response;
     }
 
-    public function getId()
+    public function getId(): string
     {
         return $this->response['id'];
     }
@@ -93,7 +93,7 @@ class GoogleUser implements ResourceOwnerInterface, SocialUserInterface
      *
      * @return array
      */
-    public function toArray()
+    public function toArray(): array
     {
         return $this->response;
     }

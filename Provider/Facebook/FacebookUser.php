@@ -44,11 +44,11 @@ class FacebookUser implements ResourceOwnerInterface, SocialUserInterface
     /**
      * Returns the ID for the user as a string if present.
      *
-     * @return string|null
+     * @return string
      */
-    public function getId()
+    public function getId(): string
     {
-        return $this->getField('id');
+        return (string)$this->getField('id');
     }
 
     /**
@@ -216,7 +216,7 @@ class FacebookUser implements ResourceOwnerInterface, SocialUserInterface
      *
      * @return array
      */
-    public function toArray()
+    public function toArray(): array
     {
         return $this->data;
     }

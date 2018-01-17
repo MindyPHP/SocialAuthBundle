@@ -20,7 +20,7 @@ class TwitterUser extends User implements SocialUserInterface
     /**
      * @return array
      */
-    public function toArray()
+    public function toArray(): array
     {
         $array = [];
 
@@ -43,7 +43,7 @@ class TwitterUser extends User implements SocialUserInterface
     /**
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->uid;
     }

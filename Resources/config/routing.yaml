@@ -1,6 +1,6 @@
-mindy_social_auth:
+social_auth:
     path: /auth/{provider}
     defaults:
-        _controller: SocialBundle:Social:auth
+        _controller: \Mindy\Bundle\SocialBundle\Controller\SocialController::auth
     requirements:
         provider: '[a-zA-Z0-9-_]+'

@@ -16,12 +16,12 @@ interface SocialUserInterface
     /**
      * @return string
      */
-    public function getId();
+    public function getId(): string;
 
     /**
      * @return array
      */
-    public function toArray();
+    public function toArray(): array;
 
     /**
      * @return string|null

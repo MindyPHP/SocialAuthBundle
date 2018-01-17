@@ -16,8 +16,9 @@ use League\OAuth2\Client\Provider\AbstractProvider;
 use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
 use League\OAuth2\Client\Provider\ResourceOwnerInterface;
 use Mindy\Bundle\MindyBundle\Controller\Controller;
-use Mindy\Bundle\SocialBundle\Model\SocialUser;
 use Mindy\Bundle\SocialAuthBundle\Provider\SocialUserInterface;
+use Mindy\Bundle\SocialAuthBundle\Registry\SocialRegistry;
+use Mindy\Bundle\SocialBundle\Model\SocialUser;
 use Mindy\Bundle\UserBundle\Model\User;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -42,7 +43,11 @@ class SocialController extends Controller
      */
     protected function procesOauth2(Request $request, string $provider, AbstractProvider $providerInstance)
     {
-        $redirectUri = $this->generateUrl('mindy_social_auth', ['provider' => $provider], UrlGeneratorInterface::ABSOLUTE_URL);
+        $redirectUri = $this->generateUrl(
+            'social_auth',
+            ['provider' => $provider],
+            UrlGeneratorInterface::ABSOLUTE_URL
+        );
         $session = $request->getSession();
 
         if (false === $request->query->has('code')) {
@@ -76,9 +81,9 @@ class SocialController extends Controller
 
             return $this->processUser($request, $provider, $owner);
         } catch (IdentityProviderException $e) {
-            // Log error
-            dump($e);
-            die;
+            return $this->render('social_auth/error.html', [
+                'error' => $e,
+            ]);
         }
     }
 
@@ -153,7 +158,11 @@ class SocialController extends Controller
             return $this->processUser($request, $provider, $owner);
         }
 
-        $redirectUri = $this->generateUrl('mindy_social_auth', ['provider' => $provider], UrlGeneratorInterface::ABSOLUTE_URL);
+        $redirectUri = $this->generateUrl(
+            'social_auth',
+            ['provider' => $provider],
+            UrlGeneratorInterface::ABSOLUTE_URL
+        );
 
         $providerInstance->getClientCredentials()
             ->setCallbackUri($redirectUri);
@@ -170,10 +179,8 @@ class SocialController extends Controller
         return $this->redirect($providerInstance->getAuthorizationUrl($temporaryCredentials));
     }
 
-    public function authAction(Request $request, $provider)
+    public function auth(Request $request, SocialRegistry $registry, $provider)
     {
-        $registry = $this->get('mindy.bundle.social.registry');
-
         if (false === $registry->hasProvider($provider)) {
             throw new NotFoundHttpException();
         }

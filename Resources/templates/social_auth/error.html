@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block breadcrumbs %}
+    {% set breadcrumbs = [
+        ['name' => 'Ошибка авторизации']
+    ] %}
+    {% parent %}
+{% endblock %}
+
+{% block content %}
+    <div class="b-row">
+        <div class="b-col b-col_small_12">
+            <h1 class="b-heading">Ошибка авторизации</h1>
+
+            <a class="b-button"
+               target="_blank"
+               href="{{ url('social_auth') }}">Попробовать войти снова</a>
+        </div>
+    </div>
+{% endblock %}

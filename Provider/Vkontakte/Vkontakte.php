@@ -157,9 +157,12 @@ class Vkontakte extends AbstractProvider
         return $url;
     }
 
+    /**
+     * @return array
+     */
     protected function getDefaultScopes()
     {
-        return $this->scopes;
+        return ['email', 'offline'];
     }
 
     protected function checkResponse(ResponseInterface $response, $data)

@@ -32,7 +32,7 @@ class OdnoklassnikiResourceOwner implements ResourceOwnerInterface, SocialUserIn
     /**
      * {@inheritdoc}
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->response['uid'];
     }
@@ -96,7 +96,7 @@ class OdnoklassnikiResourceOwner implements ResourceOwnerInterface, SocialUserIn
     /**
      * {@inheritdoc}
      */
-    public function toArray()
+    public function toArray(): array
     {
         return $this->response;
     }
