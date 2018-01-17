@@ -9,7 +9,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Mindy\Bundle\SocialBundle\DependencyInjection;
+namespace Mindy\Bundle\SocialAuthBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
@@ -24,8 +24,11 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('social_auth');
+        $rootNode
+            ->children()
+            ->append($this->providerVkontakte())
+            ->end();
 
-        $this->addVkontakteSection($rootNode);
         $this->addGoogleSection($rootNode);
         $this->addYandexSection($rootNode);
         $this->addTwitterSection($rootNode);
@@ -42,8 +45,8 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('odnoklassniki')
                     ->canBeEnabled()
                     ->children()
-                        ->scalarNode('client_id')->end()
-                        ->scalarNode('client_secret')->end()
+                        ->scalarNode('client_id')->defaultNull()->end()
+                        ->scalarNode('client_secret')->defaultNull()->end()
                     ->end()
                 ->end()
             ->end();
@@ -56,8 +59,8 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('twitter')
                     ->canBeEnabled()
                     ->children()
-                        ->scalarNode('client_id')->end()
-                        ->scalarNode('client_secret')->end()
+                        ->scalarNode('client_id')->defaultNull()->end()
+                        ->scalarNode('client_secret')->defaultNull()->end()
                     ->end()
                 ->end()
             ->end();
@@ -70,8 +73,8 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('yandex')
                     ->canBeEnabled()
                     ->children()
-                        ->scalarNode('client_id')->end()
-                        ->scalarNode('client_secret')->end()
+                        ->scalarNode('client_id')->defaultNull()->end()
+                        ->scalarNode('client_secret')->defaultNull()->end()
                     ->end()
                 ->end()
             ->end();
@@ -84,26 +87,30 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('google')
                     ->canBeEnabled()
                     ->children()
-                        ->scalarNode('client_id')->end()
-                        ->scalarNode('client_secret')->end()
+                        ->scalarNode('client_id')->defaultNull()->end()
+                        ->scalarNode('client_secret')->defaultNull()->end()
                     ->end()
                 ->end()
             ->end();
     }
 
-    private function addVkontakteSection(ArrayNodeDefinition $rootNode)
+    private function providerVkontakte()
     {
-        $rootNode
+        $builder = new TreeBuilder();
+        $node = $builder->root('vkontakte');
+
+        $node
+            ->canBeEnabled()
             ->children()
-                ->arrayNode('vk')
-                    ->canBeEnabled()
-                    ->children()
-                        ->scalarNode('client_id')->end()
-                        ->scalarNode('client_secret')->end()
-                        ->arrayNode('scope')->defaultValue(['email', 'offline'])->end()
-                    ->end()
+                ->scalarNode('client_id')->defaultNull()->end()
+                ->scalarNode('client_secret')->defaultNull()->end()
+                ->arrayNode('scope')
+                    ->scalarPrototype()->end()
+                    ->defaultValue(['email', 'offline'])
                 ->end()
             ->end();
+
+        return $node;
     }
 
     private function addFacebookSection(ArrayNodeDefinition $rootNode)
@@ -113,10 +120,13 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('facebook')
                     ->canBeEnabled()
                     ->children()
-                        ->scalarNode('client_id')->end()
-                        ->scalarNode('client_secret')->end()
+                        ->scalarNode('client_id')->defaultNull()->end()
+                        ->scalarNode('client_secret')->defaultNull()->end()
                         ->scalarNode('graph_api_version')->defaultValue('v2.10')->end()
-                        ->arrayNode('scope')->defaultValue(['email', 'public_profile'])->end()
+                        ->arrayNode('scope')
+                            ->scalarPrototype()->end()
+                            ->defaultValue(['email', 'public_profile'])
+                        ->end()
                     ->end()
                 ->end()
             ->end();

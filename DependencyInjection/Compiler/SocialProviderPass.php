@@ -9,9 +9,9 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Mindy\Bundle\SocialBundle\DependencyInjection\Compiler;
+namespace Mindy\Bundle\SocialAuthBundle\DependencyInjection\Compiler;
 
-use Mindy\Bundle\SocialBundle\Registry\SocialRegistry;
+use Mindy\Bundle\SocialAuthBundle\Registry\SocialRegistry;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;

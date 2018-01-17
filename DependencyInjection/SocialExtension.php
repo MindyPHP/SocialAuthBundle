@@ -9,14 +9,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Mindy\Bundle\SocialBundle\DependencyInjection;
+namespace Mindy\Bundle\SocialAuthBundle\DependencyInjection;
 
-use Mindy\Bundle\SocialBundle\Provider\Facebook\Facebook;
-use Mindy\Bundle\SocialBundle\Provider\Google\Google;
-use Mindy\Bundle\SocialBundle\Provider\Odnoklassniki\Odnoklassniki;
-use Mindy\Bundle\SocialBundle\Provider\Twitter\Twitter;
-use Mindy\Bundle\SocialBundle\Provider\Vkontakte\Vkontakte;
-use Mindy\Bundle\SocialBundle\Provider\Yandex\Yandex;
+use Mindy\Bundle\SocialAuthBundle\Provider\Facebook\Facebook;
+use Mindy\Bundle\SocialAuthBundle\Provider\Google\Google;
+use Mindy\Bundle\SocialAuthBundle\Provider\Odnoklassniki\Odnoklassniki;
+use Mindy\Bundle\SocialAuthBundle\Provider\Twitter\Twitter;
+use Mindy\Bundle\SocialAuthBundle\Provider\Vkontakte\Vkontakte;
+use Mindy\Bundle\SocialAuthBundle\Provider\Yandex\Yandex;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
