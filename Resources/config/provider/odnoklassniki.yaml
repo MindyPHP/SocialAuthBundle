@@ -1,0 +1,8 @@
+services:
+    Mindy\Bundle\SocialBundle\Provider\Odnoklassniki\Odnoklassniki:
+        arguments:
+            -
+                identifier: '%mindy.social.provider.odnoklassniki.client_id%'
+                secret: '%mindy.social.provider.odnoklassniki.client_secret%'
+        tags:
+            - { name: social.provider, provider: odnoklassniki }

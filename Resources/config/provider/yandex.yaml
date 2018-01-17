@@ -1,0 +1,8 @@
+services:
+    Mindy\Bundle\SocialBundle\Provider\Yandex\Yandex:
+        arguments:
+            -
+                clientId: '%mindy.social.provider.yandex.client_id%'
+                clientSecret: '%mindy.social.provider.yandex.client_secret%'
+        tags:
+            - { name: social.provider, provider: yandex }

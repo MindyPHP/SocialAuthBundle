@@ -1,0 +1,8 @@
+services:
+    Mindy\Bundle\SocialBundle\Provider\Google\Google:
+        arguments:
+            -
+                clientId: '%mindy.social.provider.google.client_id%'
+                clientSecret: '%mindy.social.provider.google.client_secret%'
+        tags:
+            - { name: social.provider, provider: google }

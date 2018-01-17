@@ -1,0 +1,18 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    _instanceof:
+        Mindy\Template\Library\LibraryInterface:
+            public: true
+            tags: ['template.library']
+
+    Mindy\Bundle\SocialAuthBundle\:
+        resource: '../../*'
+        exclude: '../../{Tests,Model,vendor}'
+
+    Mindy\Bundle\SocialAuthBundle\Controller\:
+        resource: '../../Controller'
+        tags: ['controller.service_arguments']
