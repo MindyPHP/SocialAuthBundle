@@ -18,7 +18,7 @@ use League\OAuth2\Client\Provider\ResourceOwnerInterface;
 use Mindy\Bundle\MindyBundle\Controller\Controller;
 use Mindy\Bundle\SocialAuthBundle\Provider\SocialUserInterface;
 use Mindy\Bundle\SocialAuthBundle\Registry\SocialRegistry;
-use Mindy\Bundle\SocialBundle\Model\SocialUser;
+use Mindy\Bundle\SocialAuthBundle\Model\SocialUser;
 use Mindy\Bundle\UserBundle\Model\User;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;

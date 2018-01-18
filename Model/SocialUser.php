@@ -9,7 +9,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Mindy\Bundle\SocialBundle\Model;
+namespace Mindy\Bundle\SocialAuthBundle\Model;
 
 use Mindy\Bundle\UserBundle\Model\User;
 use Mindy\Orm\Fields\CharField;

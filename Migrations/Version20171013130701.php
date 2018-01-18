@@ -13,7 +13,7 @@ namespace Mindy\Bundle\SocialAuthBundle\Migrations;
 
 use Doctrine\DBAL\Migrations\AbstractMigration;
 use Doctrine\DBAL\Schema\Schema;
-use Mindy\Bundle\SocialBundle\Model\SocialUser;
+use Mindy\Bundle\SocialAuthBundle\Model\SocialUser;
 
 /**
  * Auto-generated Migration: Please modify to your needs!
